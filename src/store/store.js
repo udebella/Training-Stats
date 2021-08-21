@@ -1,6 +1,6 @@
 export const storeConfig = () => ({
 	state: {
-		buttons: [],
+		buttons: [0, 0.5, 1, 2],
 		tries: [[]],
 	},
 	mutations: {},

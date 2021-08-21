@@ -11,12 +11,16 @@ describe('Store', () => {
 
 	it('is empty by default', () => {
 		expect(store.state).to.deep.equals({
-			buttons: [],
+			buttons: [0, 0.5, 1, 2],
 			tries: [[]],
 		})
 	})
 
 	describe('addButton', () => {
+		beforeEach(() => {
+			store.state.buttons = []
+		})
+
 		it('allows to add buttons', () => {
 			store.dispatch('addButton', 0)
 
