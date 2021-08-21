@@ -1,3 +1,5 @@
+import {computePercentile} from "../utils/percentiles"
+
 export const storeConfig = () => ({
 	state: {
 		buttons: [0, 0.5, 1, 2],
@@ -35,6 +37,13 @@ function stats(state) {
 	return state.tries.map(trySeries => ({
 		numberTries: trySeries.length,
 		score: trySeries.reduce((score, tryScore) => score + tryScore, 0),
+		boxplot: [
+			computePercentile(trySeries, 0),
+			computePercentile(trySeries, 25),
+			computePercentile(trySeries, 50),
+			computePercentile(trySeries, 75),
+			computePercentile(trySeries, 100),
+		],
 	}))
 }
 

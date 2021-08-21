@@ -73,6 +73,7 @@ describe('Store', () => {
 			expect(store.getters.stats).to.deep.equals([{
 				numberTries: 3,
 				score: 6,
+				boxplot: [1, 2, 2, 3, 3],
 			}])
 		})
 
@@ -82,6 +83,7 @@ describe('Store', () => {
 			expect(store.getters.stats).to.deep.equals([{
 				numberTries: 0,
 				score: 0,
+				boxplot: [0, 0, 0, 0, 0],
 			}])
 		})
 
@@ -91,9 +93,11 @@ describe('Store', () => {
 			expect(store.getters.stats).to.deep.equals([{
 				numberTries: 2,
 				score: 3,
+				boxplot: [1, 2, 2, 2, 2],
 			}, {
 				numberTries: 2,
 				score: 7,
+				boxplot: [3, 4, 4, 4, 4],
 			}])
 		})
 	})
@@ -105,6 +109,7 @@ describe('Store', () => {
 			expect(store.getters.currentStats).to.deep.equals({
 				numberTries: 3,
 				score: 6,
+				boxplot: [1, 2, 2, 3, 3],
 			})
 		})
 	})
