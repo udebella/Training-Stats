@@ -1,18 +1,5 @@
 import {expect} from "chai"
-
-function computePercentile(array, percentile) {
-	const sortedArray = [...array].sort()
-	const percentileIndex = findPercentileIndex(percentile, array)
-	return sortedArray[percentileIndex] ?? 0
-}
-
-function findPercentileIndex(percentile, array) {
-	const percentileIndex = (percentile / 100) * (array.length - 1)
-	if (Number.isInteger(percentileIndex)) {
-		return percentileIndex
-	}
-	return Math.floor(percentileIndex) + 1
-}
+import {computePercentile} from "../../../src/utils/percentiles"
 
 describe('computePercentile', () => {
 	[0, 50, 100].forEach(percentile => {
