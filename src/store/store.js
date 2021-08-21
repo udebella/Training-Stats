@@ -1,6 +1,4 @@
-import {createStore} from 'vuex'
-
-export const store = createStore({
+export const storeConfig = () => ({
 	state: {
 		buttons: []
 	},
@@ -12,5 +10,5 @@ export const store = createStore({
 })
 
 function addButton(store, buttonToAdd) {
-	store.state.buttons = [buttonToAdd]
+	store.state.buttons = [...store.state.buttons, buttonToAdd]
 }

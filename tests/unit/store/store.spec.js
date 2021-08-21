@@ -1,14 +1,30 @@
 import {expect} from "chai"
-import {store} from '@/store/store'
+import {createStore} from "vuex"
+import {storeConfig} from "../../../src/store/store"
 
 describe('Store', () => {
-	it('is empty by default', () => {
-		expect(store.state).to.deep.equals({ buttons: [] })
+	let store
+
+	beforeEach(() => {
+		store = createStore(storeConfig())
 	})
 
-	it('allows to add buttons', () => {
-		store.dispatch('addButton', 0)
+	it('is empty by default', () => {
+		expect(store.state).to.deep.equals({buttons: []})
+	})
 
-		expect(store.state.buttons).to.deep.equals([0])
+	describe('addButton', () => {
+		it('allows to add buttons', () => {
+			store.dispatch('addButton', 0)
+
+			expect(store.state.buttons).to.deep.equals([0])
+		})
+
+		it('allows to add multiple buttons', () => {
+			store.dispatch('addButton', 0)
+			store.dispatch('addButton', 2)
+
+			expect(store.state.buttons).to.deep.equals([0, 2])
+		})
 	})
 })
