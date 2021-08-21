@@ -72,5 +72,11 @@ describe('Store', () => {
 
 			expect(store.getters.scores).to.deep.equals([6])
 		})
+
+		it('is 0 for empty try series', () => {
+			store.state.tries = [[]]
+
+			expect(store.getters.scores).to.deep.equals([0])
+		})
 	})
 })

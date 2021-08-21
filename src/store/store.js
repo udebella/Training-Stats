@@ -31,5 +31,5 @@ function addTrySeries(store) {
 }
 
 function scores(state) {
-	return state.tries.map(trySeries => trySeries.reduce((score, tryScore) => score + tryScore), 0)
+	return state.tries.map(trySeries => trySeries.reduce((score, tryScore) => score + tryScore, 0))
 }
