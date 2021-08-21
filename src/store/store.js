@@ -8,6 +8,10 @@ export const storeConfig = () => ({
 		addButton,
 		addTryValue,
 	},
+	getters: {
+		buttons: (state) => state.buttons,
+		tries: (state) => state.tries,
+	},
 	modules: {},
 })
 
