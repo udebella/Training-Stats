@@ -16,5 +16,5 @@ function addButton(store, buttonToAdd) {
 }
 
 function addTryValue(store, tryValue) {
-	store.state.tries = [tryValue]
+	store.state.tries = [...store.state.tries, tryValue]
 }

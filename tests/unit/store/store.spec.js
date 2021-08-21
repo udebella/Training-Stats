@@ -37,5 +37,12 @@ describe('Store', () => {
 
 			expect(store.state.tries).to.deep.equals([0])
 		})
+
+		it('save multiple tries', () => {
+			store.dispatch('addTryValue', 0)
+			store.dispatch('addTryValue', 1)
+
+			expect(store.state.tries).to.deep.equals([0, 1])
+		})
 	})
 })
