@@ -93,4 +93,14 @@ describe('Store', () => {
 			}])
 		})
 	})
+
+	describe('currentStats', () => {
+		it('give stats on the current try series', () => {
+			store.state.tries = [[1, 2, 3]]
+
+			expect(store.getters.currentStats).to.deep.equals({
+				score: 6,
+			})
+		})
+	})
 })
