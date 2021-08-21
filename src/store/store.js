@@ -12,7 +12,7 @@ export const storeConfig = () => ({
 	getters: {
 		buttons: (state) => state.buttons,
 		tries: (state) => state.tries,
-		scores,
+		stats,
 	},
 	modules: {},
 })
@@ -30,6 +30,8 @@ function addTrySeries(store) {
 	store.state.tries = [...store.state.tries, []]
 }
 
-function scores(state) {
-	return state.tries.map(trySeries => trySeries.reduce((score, tryScore) => score + tryScore, 0))
+function stats(state) {
+	return state.tries.map(trySeries => ({
+		score: trySeries.reduce((score, tryScore) => score + tryScore, 0),
+	}))
 }

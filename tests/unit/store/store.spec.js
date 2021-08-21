@@ -66,23 +66,31 @@ describe('Store', () => {
 		})
 	})
 
-	describe('scores', () => {
+	describe('stats', () => {
 		it('computes scores for each try series', () => {
 			store.state.tries = [[1, 2, 3]]
 
-			expect(store.getters.scores).to.deep.equals([6])
+			expect(store.getters.stats).to.deep.equals([{
+				score: 6,
+			}])
 		})
 
 		it('is 0 for empty try series', () => {
 			store.state.tries = [[]]
 
-			expect(store.getters.scores).to.deep.equals([0])
+			expect(store.getters.stats).to.deep.equals([{
+				score: 0,
+			}])
 		})
 
 		it('properly computes scores for multiple series', () => {
 			store.state.tries = [[1, 2], [3, 4]]
 
-			expect(store.getters.scores).to.deep.equals([3, 7])
+			expect(store.getters.stats).to.deep.equals([{
+				score: 3,
+			}, {
+				score: 7,
+			}])
 		})
 	})
 })
