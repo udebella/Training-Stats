@@ -4,7 +4,7 @@
 
 <script>
 export default {
-	name: 'Score',
+	name: 'StatsResume',
 	computed: {
 		score() {
 			return this.$store.getters.currentStats.score

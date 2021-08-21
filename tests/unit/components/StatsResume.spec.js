@@ -1,8 +1,8 @@
 import {expect} from 'chai'
 import {shallowMount} from '@vue/test-utils'
-import Score from '@/components/Score.vue'
+import StatsResume from '@/components/StatsResume.vue'
 
-describe('Score component', () => {
+describe('StatsResume component', () => {
 	let wrapper
 	let $store
 
@@ -14,7 +14,7 @@ describe('Score component', () => {
 				},
 			},
 		}
-		wrapper = shallowMount(Score, {
+		wrapper = shallowMount(StatsResume, {
 			global: {
 				mocks: {
 					$store,

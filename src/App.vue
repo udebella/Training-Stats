@@ -1,17 +1,17 @@
 <template>
 	<try-series data-test="try-series"/>
-	<score data-test="score"/>
+	<stats-resume data-test="score"/>
 </template>
 
 <script>
 import TrySeries from "./components/TrySeries"
-import Score from "./components/Score"
+import StatsResume from "./components/StatsResume"
 
 export default {
 	name: 'App',
 	components: {
 		TrySeries,
-		Score,
+		StatsResume,
 	},
 }
 </script>
