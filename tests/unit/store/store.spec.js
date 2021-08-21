@@ -71,6 +71,7 @@ describe('Store', () => {
 			store.state.tries = [[1, 2, 3]]
 
 			expect(store.getters.stats).to.deep.equals([{
+				numberTries: 3,
 				score: 6,
 			}])
 		})
@@ -79,6 +80,7 @@ describe('Store', () => {
 			store.state.tries = [[]]
 
 			expect(store.getters.stats).to.deep.equals([{
+				numberTries: 0,
 				score: 0,
 			}])
 		})
@@ -87,8 +89,10 @@ describe('Store', () => {
 			store.state.tries = [[1, 2], [3, 4]]
 
 			expect(store.getters.stats).to.deep.equals([{
+				numberTries: 2,
 				score: 3,
 			}, {
+				numberTries: 2,
 				score: 7,
 			}])
 		})
@@ -99,6 +103,7 @@ describe('Store', () => {
 			store.state.tries = [[1, 2, 3]]
 
 			expect(store.getters.currentStats).to.deep.equals({
+				numberTries: 3,
 				score: 6,
 			})
 		})

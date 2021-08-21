@@ -33,6 +33,7 @@ function addTrySeries(store) {
 
 function stats(state) {
 	return state.tries.map(trySeries => ({
+		numberTries: trySeries.length,
 		score: trySeries.reduce((score, tryScore) => score + tryScore, 0),
 	}))
 }
