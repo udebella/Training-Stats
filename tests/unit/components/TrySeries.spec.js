@@ -3,7 +3,7 @@ import {shallowMount} from '@vue/test-utils'
 import TrySeries from '@/components/TrySeries.vue'
 import {stub} from "sinon"
 
-describe('TrySeries.vue', () => {
+describe('TrySeries component', () => {
 	let wrapper
 	let $store
 
