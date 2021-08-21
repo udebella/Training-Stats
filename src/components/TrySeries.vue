@@ -1,6 +1,7 @@
 <template>
-	<div>
+	<div class="button-list">
 		<button data-test="try-score-button"
+				class="button"
 				v-for="button in buttons"
 				:key="button"
 				@click="addTryValue(button)">
@@ -29,3 +30,13 @@ export default {
 	},
 }
 </script>
+
+<style scoped>
+.button-list {
+	display: flex;
+	justify-content: space-between;
+}
+.button {
+	padding: 5%;
+}
+</style>
