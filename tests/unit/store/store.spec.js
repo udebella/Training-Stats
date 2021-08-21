@@ -78,5 +78,11 @@ describe('Store', () => {
 
 			expect(store.getters.scores).to.deep.equals([0])
 		})
+
+		it('properly computes scores for multiple series', () => {
+			store.state.tries = [[1, 2], [3, 4]]
+
+			expect(store.getters.scores).to.deep.equals([3, 7])
+		})
 	})
 })
