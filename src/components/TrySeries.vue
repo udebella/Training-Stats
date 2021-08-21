@@ -18,7 +18,8 @@ export default {
 			return this.$store.getters.buttons
 		},
 		score() {
-			return this.$store.getters.score
+			const lastScore = this.$store.getters.scores.length - 1
+			return this.$store.getters.scores[lastScore]
 		},
 	},
 	methods: {

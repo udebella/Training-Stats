@@ -12,7 +12,7 @@ describe('TrySeries.vue', () => {
 			dispatch: stub(),
 			getters: {
 				buttons: [1, 2],
-				score: 5,
+				scores: [1, 5],
 			},
 		}
 		wrapper = shallowMount(TrySeries, {
