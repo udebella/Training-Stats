@@ -65,4 +65,12 @@ describe('Store', () => {
 			expect(store.getters.tries).to.deep.equals([[], []])
 		})
 	})
+
+	describe('scores', () => {
+		it('computes scores for each try series', () => {
+			store.state.tries = [[1, 2, 3]]
+
+			expect(store.getters.scores).to.deep.equals([6])
+		})
+	})
 })
