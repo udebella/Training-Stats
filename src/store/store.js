@@ -1,14 +1,20 @@
 export const storeConfig = () => ({
 	state: {
-		buttons: []
+		buttons: [],
+		tries: [],
 	},
 	mutations: {},
 	actions: {
-		addButton
+		addButton,
+		addTryValue,
 	},
-	modules: {}
+	modules: {},
 })
 
 function addButton(store, buttonToAdd) {
 	store.state.buttons = [...store.state.buttons, buttonToAdd]
+}
+
+function addTryValue(store, tryValue) {
+	store.state.tries = [tryValue]
 }

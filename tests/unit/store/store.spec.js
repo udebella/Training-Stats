@@ -10,7 +10,10 @@ describe('Store', () => {
 	})
 
 	it('is empty by default', () => {
-		expect(store.state).to.deep.equals({buttons: []})
+		expect(store.state).to.deep.equals({
+			buttons: [],
+			tries: [],
+		})
 	})
 
 	describe('addButton', () => {
@@ -25,6 +28,14 @@ describe('Store', () => {
 			store.dispatch('addButton', 2)
 
 			expect(store.state.buttons).to.deep.equals([0, 2])
+		})
+	})
+
+	describe('addTryValue', () => {
+		it('add value from the try', () => {
+			store.dispatch('addTryValue', 0)
+
+			expect(store.state.tries).to.deep.equals([0])
 		})
 	})
 })
