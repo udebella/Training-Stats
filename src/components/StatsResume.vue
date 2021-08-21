@@ -1,13 +1,13 @@
 <template>
-	<div data-test="score" class="score">{{score}}</div>
+	<div data-test="score" class="score">{{currentStats.score}}</div>
 </template>
 
 <script>
 export default {
 	name: 'StatsResume',
 	computed: {
-		score() {
-			return this.$store.getters.currentStats.score
+		currentStats() {
+			return this.$store.getters.currentStats
 		},
 	},
 }
