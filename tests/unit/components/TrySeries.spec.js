@@ -12,7 +12,6 @@ describe('TrySeries component', () => {
 			dispatch: stub(),
 			getters: {
 				buttons: [1, 2],
-				scores: [1, 5],
 			},
 		}
 		wrapper = shallowMount(TrySeries, {
@@ -38,11 +37,5 @@ describe('TrySeries component', () => {
 		button.trigger('click')
 
 		expect($store.dispatch).to.have.been.calledWith('addTryValue', 1)
-	})
-
-	it('displays the score for the series', () => {
-		const score = wrapper.find('[data-test=score]')
-
-		expect(score.text()).to.equals('5')
 	})
 })

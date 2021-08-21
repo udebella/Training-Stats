@@ -7,7 +7,6 @@
 				@click="addTryValue(button)">
 			{{button}}
 		</button>
-		<span data-test="score">{{score}}</span>
 	</div>
 </template>
 
@@ -17,10 +16,6 @@ export default {
 	computed: {
 		buttons() {
 			return this.$store.getters.buttons
-		},
-		score() {
-			const lastScore = this.$store.getters.scores.length - 1
-			return this.$store.getters.scores[lastScore]
 		},
 	},
 	methods: {
