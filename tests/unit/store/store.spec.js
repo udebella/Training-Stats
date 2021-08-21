@@ -44,6 +44,14 @@ describe('Store', () => {
 
 			expect(store.getters.tries).to.deep.equals([[0, 1]])
 		})
+
+		it('always add tries to the last try series', () => {
+			store.state.tries = [[1], []]
+
+			store.dispatch('addTryValue', 0)
+
+			expect(store.getters.tries).to.deep.equals([[1], [0]])
+		})
 	})
 
 	describe('addTrySeries', () => {
