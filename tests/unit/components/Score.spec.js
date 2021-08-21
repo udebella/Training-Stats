@@ -9,7 +9,9 @@ describe('Score component', () => {
 	beforeEach(() => {
 		$store = {
 			getters: {
-				scores: [1, 5],
+				currentStats: {
+					score: 5,
+				},
 			},
 		}
 		wrapper = shallowMount(Score, {
