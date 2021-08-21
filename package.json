@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test": "vue-cli-service test:unit",
+    "test": "vue-cli-service test:unit --include tests/unit/setup.js",
     "lint": "vue-cli-service lint",
     "vue": "vue"
   },
@@ -26,7 +26,9 @@
     "babel-eslint": "^10.1.0",
     "chai": "^4.1.2",
     "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^7.0.0"
+    "eslint-plugin-vue": "^7.0.0",
+    "sinon": "^11.1.2",
+    "sinon-chai": "^3.7.0"
   },
   "eslintConfig": {
     "root": true,
@@ -41,9 +43,15 @@
       "parser": "babel-eslint"
     },
     "rules": {
-      "semi": ["error", "never"],
-	    "comma-dangle": ["error", "always-multiline"]
-	},
+      "semi": [
+        "error",
+        "never"
+      ],
+      "comma-dangle": [
+        "error",
+        "always-multiline"
+      ]
+    },
     "overrides": [
       {
         "files": [
