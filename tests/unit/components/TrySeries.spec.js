@@ -5,19 +5,14 @@ import {stub} from "sinon"
 
 describe('TrySeries.vue', () => {
 	let wrapper
-	let mocks
+	let $store
 
 	beforeEach(() => {
-		mocks = {
+		$store = {
 			dispatch: stub(),
-			buttons: stub().returns([1, 2]),
-			score: stub().returns(5),
-		}
-		const $store = {
-			dispatch: mocks.dispatch,
 			getters: {
-				buttons: mocks.buttons,
-				score: mocks.score,
+				buttons: stub().returns([1, 2]),
+				score: stub().returns(5),
 			},
 		}
 		wrapper = shallowMount(TrySeries, {
@@ -42,12 +37,10 @@ describe('TrySeries.vue', () => {
 
 		button.trigger('click')
 
-		expect(mocks.dispatch).to.have.been.calledWith('addTryValue', 1)
+		expect($store.dispatch).to.have.been.calledWith('addTryValue', 1)
 	})
 
 	it('displays the score for the series', () => {
-		mocks.score.returns(5)
-
 		const score = wrapper.find('[data-test=score]')
 
 		expect(score.text()).to.equals('5')
