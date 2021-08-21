@@ -45,4 +45,12 @@ describe('Store', () => {
 			expect(store.getters.tries).to.deep.equals([[0, 1]])
 		})
 	})
+
+	describe('addTrySeries', () => {
+		it('creates a new try series', () => {
+			store.dispatch('addTrySeries')
+
+			expect(store.getters.tries).to.deep.equals([[], []])
+		})
+	})
 })
