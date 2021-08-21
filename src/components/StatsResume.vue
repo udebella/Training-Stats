@@ -1,5 +1,8 @@
 <template>
-	<div data-test="score" class="score">{{currentStats.score}}</div>
+	<div class="stats">
+		<div data-test="number-of-tries">{{currentStats.numberTries}}</div>
+		<div data-test="score" >{{currentStats.score}}</div>
+	</div>
 </template>
 
 <script>
@@ -14,7 +17,7 @@ export default {
 </script>
 
 <style scoped>
-.score {
+.stats {
 	font-size: 100px;
 	text-align: center;
 }

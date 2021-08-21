@@ -10,6 +10,7 @@ describe('StatsResume component', () => {
 		$store = {
 			getters: {
 				currentStats: {
+					numberTries: 10,
 					score: 5,
 				},
 			},
@@ -27,5 +28,11 @@ describe('StatsResume component', () => {
 		const score = wrapper.find('[data-test=score]')
 
 		expect(score.text()).to.equals('5')
+	})
+
+	it('displays the number of tries', () => {
+		const score = wrapper.find('[data-test=number-of-tries]')
+
+		expect(score.text()).to.equals('10')
 	})
 })
