@@ -12,7 +12,7 @@ describe('Store', () => {
 	it('is empty by default', () => {
 		expect(store.state).to.deep.equals({
 			buttons: [],
-			tries: [],
+			tries: [[]],
 		})
 	})
 
@@ -35,14 +35,14 @@ describe('Store', () => {
 		it('add value from the try', () => {
 			store.dispatch('addTryValue', 0)
 
-			expect(store.getters.tries).to.deep.equals([0])
+			expect(store.getters.tries).to.deep.equals([[0]])
 		})
 
 		it('save multiple tries', () => {
 			store.dispatch('addTryValue', 0)
 			store.dispatch('addTryValue', 1)
 
-			expect(store.getters.tries).to.deep.equals([0, 1])
+			expect(store.getters.tries).to.deep.equals([[0, 1]])
 		})
 	})
 })

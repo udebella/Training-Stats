@@ -1,7 +1,7 @@
 export const storeConfig = () => ({
 	state: {
 		buttons: [],
-		tries: [],
+		tries: [[]],
 	},
 	mutations: {},
 	actions: {
@@ -20,5 +20,6 @@ function addButton(store, buttonToAdd) {
 }
 
 function addTryValue(store, tryValue) {
-	store.state.tries = [...store.state.tries, tryValue]
+	const lastTry = store.state.tries.length - 1
+	store.state.tries[lastTry].push(tryValue)
 }
