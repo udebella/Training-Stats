@@ -15,10 +15,10 @@ export default {
 	name: 'TrySeries',
 	computed: {
 		buttons() {
-			return this.$store.getters.buttons()
+			return this.$store.getters.buttons
 		},
 		score() {
-			return this.$store.getters.score()
+			return this.$store.getters.score
 		},
 	},
 	methods: {

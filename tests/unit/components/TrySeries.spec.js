@@ -11,8 +11,8 @@ describe('TrySeries.vue', () => {
 		$store = {
 			dispatch: stub(),
 			getters: {
-				buttons: stub().returns([1, 2]),
-				score: stub().returns(5),
+				buttons: [1, 2],
+				score: 5,
 			},
 		}
 		wrapper = shallowMount(TrySeries, {
