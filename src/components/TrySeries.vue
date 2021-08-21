@@ -2,7 +2,8 @@
 	<div>
 		<button data-test="try-score-button"
 				v-for="button in buttons"
-				:key="button">
+				:key="button"
+				@click="addTryValue(button)">
 			{{button}}
 		</button>
 	</div>
@@ -14,6 +15,11 @@ export default {
 	computed: {
 		buttons() {
 			return this.$store.getters.buttons()
+		},
+	},
+	methods: {
+		addTryValue(buttonValue) {
+			this.$store.dispatch('addTryValue', buttonValue)
 		},
 	},
 }
