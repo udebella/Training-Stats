@@ -37,6 +37,6 @@ function stats(state) {
 	}))
 }
 
-function currentStats(_, {stats}) {
-	return stats[0]
+function currentStats(_, getters) {
+	return getters.stats[0]
 }
