@@ -1,5 +1,5 @@
 <template>
-	<span data-test="score">{{score}}</span>
+	<div data-test="score" class="score">{{score}}</div>
 </template>
 
 <script>
@@ -13,3 +13,10 @@ export default {
 	},
 }
 </script>
+
+<style scoped>
+.score {
+	font-size: 100px;
+	text-align: center;
+}
+</style>

@@ -29,9 +29,13 @@ export default {
 <style scoped>
 .button-list {
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
+	flex-wrap: wrap;
 }
 .button {
-	padding: 5%;
+	font-size: 70px;
+	margin: 5px;
+	padding: 20px;
+	min-width: 40%;
 }
 </style>
