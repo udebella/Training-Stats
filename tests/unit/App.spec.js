@@ -14,10 +14,4 @@ describe('App component', () => {
 
 		expect(trySeries.exists()).to.be.true
 	})
-
-	it('displays score', () => {
-		const score = wrapper.find('[data-test=score]')
-
-		expect(score.exists()).to.be.true
-	})
 })
