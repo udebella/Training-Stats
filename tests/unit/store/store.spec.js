@@ -58,6 +58,16 @@ describe('Store', () => {
 		})
 	})
 
+	describe('cancelLastValue', () => {
+		it('cancel last added value', () => {
+			store.state.current = createSeriesWith(5)
+
+			store.dispatch('cancelLastValue')
+
+			expect(store.getters.current.numberTries()).to.equals(0)
+		})
+	})
+
 	describe('addTrySeries', () => {
 		it('resets current series', () => {
 			store.state.current = createSeriesWith(5)
