@@ -60,9 +60,7 @@ describe('Store', () => {
 
 	describe('addTrySeries', () => {
 		it('resets current series', () => {
-			const series = createSeries()
-			series.addTry(5)
-			store.state.current = series
+			store.state.current = createSeriesWith(5)
 
 			store.dispatch('addTrySeries')
 
@@ -118,3 +116,9 @@ describe('Store', () => {
 		})
 	})
 })
+
+function createSeriesWith(...values) {
+	const series = createSeries();
+	[...values].forEach(series.addTry)
+	return series
+}
