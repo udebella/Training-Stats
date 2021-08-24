@@ -18,6 +18,7 @@ export const storeConfig = () => ({
 		tries: (state) => state.tries,
 		stats,
 		currentStats,
+		current: (state) => state.current,
 	},
 	modules: {},
 })
@@ -27,8 +28,7 @@ function addButton(store, buttonToAdd) {
 }
 
 function addTryValue(store, tryValue) {
-	const lastTry = store.state.tries.length - 1
-	store.state.tries[lastTry].push(tryValue)
+	store.state.current.addTry(tryValue)
 }
 
 function addTrySeries(store) {
