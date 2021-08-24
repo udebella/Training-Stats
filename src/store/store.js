@@ -32,7 +32,7 @@ function addTryValue(store, tryValue) {
 }
 
 function addTrySeries(store) {
-	store.state.tries = [store.state.current]
+	store.state.tries = [...store.state.tries, store.state.current]
 	store.state.current = createSeries()
 }
 

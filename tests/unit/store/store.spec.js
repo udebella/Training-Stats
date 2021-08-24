@@ -74,6 +74,14 @@ describe('Store', () => {
 
 			expect(store.getters.history[0].numberTries()).to.equals(1)
 		})
+
+		it('keeps already existing history', () => {
+			store.state.tries = [createSeriesWith(5)]
+
+			store.dispatch('addTrySeries')
+
+			expect(store.getters.history[0].numberTries()).to.equals(1)
+		})
 	})
 
 	describe('stats', () => {
