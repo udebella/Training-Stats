@@ -96,8 +96,6 @@ describe('Store', () => {
 		})
 
 		it('is empty when history is empty', () => {
-			store.state.history = []
-
 			expect(store.getters.stats).to.deep.equals([])
 		})
 
