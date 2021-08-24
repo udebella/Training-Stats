@@ -42,4 +42,24 @@ describe('Serie', () => {
 			expect(series.score()).to.equals(3)
 		})
 	})
+
+	describe('percentiles', () => {
+		it('gives minimum, first quartile, median, last quartile and maximum on default series', () => {
+			const series = createSeries()
+
+			expect(series.percentiles()).to.deep.equals([0, 0, 0, 0, 0])
+		})
+
+		it('gives minimum, first quartile, median, last quartile and maximum on a series with values', () => {
+			const series = createSeries()
+
+			series.addTry(1)
+			series.addTry(2)
+			series.addTry(3)
+			series.addTry(4)
+			series.addTry(5)
+
+			expect(series.percentiles()).to.deep.equals([1, 2, 3, 4, 5])
+		})
+	})
 })
