@@ -14,7 +14,6 @@ export const storeConfig = () => ({
 	},
 	getters: {
 		buttons: (state) => state.buttons,
-		tries: (state) => state.tries,
 		history: (state) => state.tries,
 		stats,
 		currentStats,
