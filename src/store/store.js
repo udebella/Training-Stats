@@ -15,7 +15,7 @@ export const storeConfig = () => ({
 	getters: {
 		buttons: (state) => state.buttons,
 		tries: (state) => state.tries,
-		history: () => [],
+		history: (state) => state.tries,
 		stats,
 		currentStats,
 		current: (state) => state.current,
@@ -32,8 +32,8 @@ function addTryValue(store, tryValue) {
 }
 
 function addTrySeries(store) {
+	store.state.tries = [store.state.current]
 	store.state.current = createSeries()
-	store.state.tries = [...store.state.tries, []]
 }
 
 function stats(state) {

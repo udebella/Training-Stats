@@ -66,6 +66,14 @@ describe('Store', () => {
 
 			expect(store.getters.current.numberTries()).to.equals(0)
 		})
+
+		it('moves current series to history', () => {
+			store.state.current = createSeriesWith(5)
+
+			store.dispatch('addTrySeries')
+
+			expect(store.getters.history[0].numberTries()).to.equals(1)
+		})
 	})
 
 	describe('stats', () => {
