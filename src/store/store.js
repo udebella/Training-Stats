@@ -16,7 +16,6 @@ export const storeConfig = () => ({
 		buttons: (state) => state.buttons,
 		history: (state) => state.history,
 		stats,
-		currentStats,
 		current: (state) => state.current,
 	},
 	modules: {},
@@ -41,8 +40,4 @@ function stats(state) {
 		score: trySeries.score(),
 		boxplot: trySeries.percentiles(),
 	}))
-}
-
-function currentStats(_, getters) {
-	return getters.stats[0]
 }
