@@ -12,15 +12,15 @@ describe('Store', () => {
 
 	describe('Default state', () => {
 		it('has an empty current series by default', () => {
-			expect(store.state.current.score()).to.equals(0)
+			expect(store.getters.current.score()).to.equals(0)
 		})
 
 		it('has some buttons by default', () => {
-			expect(store.state.buttons).to.deep.equals([0, 0.5, 1, 2])
+			expect(store.getters.buttons).to.deep.equals([0, 0.5, 1, 2])
 		})
 
 		it('has an empty history by default', () => {
-			expect(store.state.tries).to.deep.equals([[]])
+			expect(store.getters.history).to.deep.equals([])
 		})
 	})
 
