@@ -9,11 +9,15 @@ describe('Store', () => {
 		store = createStore(storeConfig())
 	})
 
-	it('is empty by default', () => {
-		expect(store.state).to.deep.equals({
-			buttons: [0, 0.5, 1, 2],
-			tries: [[]],
+	describe('Default state', () => {
+		it('has an empty current series by default', () => {
+			expect(store.state.current.score()).to.equals(0)
 		})
+	})
+
+	it('is empty by default', () => {
+		expect(store.state.buttons).to.deep.equals([0, 0.5, 1, 2])
+		expect(store.state.tries).to.deep.equals([[]])
 	})
 
 	describe('addButton', () => {

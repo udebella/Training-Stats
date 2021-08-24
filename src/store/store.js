@@ -1,9 +1,11 @@
 import {computePercentile} from "../utils/percentiles"
+import {createSeries} from "../domain/serie"
 
 export const storeConfig = () => ({
 	state: {
 		buttons: [0, 0.5, 1, 2],
 		tries: [[]],
+		current: createSeries(),
 	},
 	mutations: {},
 	actions: {
