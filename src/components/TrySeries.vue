@@ -14,12 +14,12 @@
 		<button data-test="cancel-last"
 				class="button"
 				@click="cancelLast">
-			Cancel
+			👋
 		</button>
 		<button data-test="start-new"
 				class="button"
 				@click="startNew">
-			Start new
+			👌
 		</button>
 	</div>
 </template>

@@ -59,7 +59,7 @@ describe('TrySeries component', () => {
 		it('displays a button to cancel last value', () => {
 			const button = wrapper.find('[data-test=cancel-last]')
 
-			expect(button.text()).to.equals('Cancel')
+			expect(button.text()).to.equals('👋')
 		})
 
 		it('cancels last value when clicked', () => {
@@ -75,7 +75,7 @@ describe('TrySeries component', () => {
 		it('displays a button to start a new series', () => {
 			const button = wrapper.find('[data-test=start-new]')
 
-			expect(button.text()).to.equals('Start new')
+			expect(button.text()).to.equals('👌')
 		})
 
 		it('starts a new series when clicked', () => {
