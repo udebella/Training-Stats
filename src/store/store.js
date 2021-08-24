@@ -3,7 +3,7 @@ import {createSeries} from "../domain/serie"
 export const storeConfig = () => ({
 	state: {
 		buttons: [0, 0.5, 1, 2],
-		tries: [],
+		history: [],
 		current: createSeries(),
 	},
 	mutations: {},
@@ -14,7 +14,7 @@ export const storeConfig = () => ({
 	},
 	getters: {
 		buttons: (state) => state.buttons,
-		history: (state) => state.tries,
+		history: (state) => state.history,
 		stats,
 		currentStats,
 		current: (state) => state.current,
@@ -31,12 +31,12 @@ function addTryValue(store, tryValue) {
 }
 
 function addTrySeries(store) {
-	store.state.tries = [...store.state.tries, store.state.current]
+	store.state.history = [...store.state.history, store.state.current]
 	store.state.current = createSeries()
 }
 
 function stats(state) {
-	return state.tries.map(trySeries => ({
+	return state.history.map(trySeries => ({
 		numberTries: trySeries.numberTries(),
 		score: trySeries.score(),
 		boxplot: trySeries.percentiles(),

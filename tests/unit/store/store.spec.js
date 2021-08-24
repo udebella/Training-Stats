@@ -76,7 +76,7 @@ describe('Store', () => {
 		})
 
 		it('keeps already existing history', () => {
-			store.state.tries = [createSeriesWith(5)]
+			store.state.history = [createSeriesWith(5)]
 
 			store.dispatch('addTrySeries')
 
@@ -86,7 +86,7 @@ describe('Store', () => {
 
 	describe('stats', () => {
 		it('computes scores for each try series', () => {
-			store.state.tries = [createSeriesWith(1, 2, 3)]
+			store.state.history = [createSeriesWith(1, 2, 3)]
 
 			expect(store.getters.stats).to.deep.equals([{
 				numberTries: 3,
@@ -96,13 +96,13 @@ describe('Store', () => {
 		})
 
 		it('is empty when history is empty', () => {
-			store.state.tries = []
+			store.state.history = []
 
 			expect(store.getters.stats).to.deep.equals([])
 		})
 
-		it('properly computes scores for multiple series', () => {
-			store.state.tries = [createSeriesWith(1, 2), createSeriesWith(3, 4)]
+		it('properly computes stats for multiple series', () => {
+			store.state.history = [createSeriesWith(1, 2), createSeriesWith(3, 4)]
 
 			expect(store.getters.stats).to.deep.equals([{
 				numberTries: 2,
