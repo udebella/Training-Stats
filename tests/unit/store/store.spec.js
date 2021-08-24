@@ -1,6 +1,7 @@
 import {expect} from "chai"
 import {createStore} from "vuex"
 import {storeConfig} from "../../../src/store/store"
+import {createSeries} from "../../../src/domain/serie"
 
 describe('Store', () => {
 	let store
@@ -58,10 +59,14 @@ describe('Store', () => {
 	})
 
 	describe('addTrySeries', () => {
-		it('creates a new try series', () => {
+		it('resets current series', () => {
+			const series = createSeries()
+			series.addTry(5)
+			store.state.current = series
+
 			store.dispatch('addTrySeries')
 
-			expect(store.getters.tries).to.deep.equals([[], []])
+			expect(store.getters.current.numberTries()).to.equals(0)
 		})
 	})
 
