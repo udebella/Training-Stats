@@ -65,8 +65,7 @@ describe('Serie', () => {
 
 	describe('cancelLast', () => {
 		it('allows to remove last entered value', () => {
-			const series = createSeries()
-			series.addTry(5)
+			const series = createSeries({values: [5]})
 
 			series.cancelLast()
 
@@ -74,9 +73,7 @@ describe('Serie', () => {
 		})
 
 		it('only cancel last values but keeps other values', () => {
-			const series = createSeries()
-			series.addTry(5)
-			series.addTry(2)
+			const series = createSeries({values: [5, 2]})
 
 			series.cancelLast()
 

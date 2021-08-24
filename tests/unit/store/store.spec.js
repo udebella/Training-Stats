@@ -60,7 +60,7 @@ describe('Store', () => {
 
 	describe('cancelLastValue', () => {
 		it('cancel last added value', () => {
-			store.state.current = createSeriesWith(5)
+			store.state.current = createSeries({values: [5]})
 
 			store.dispatch('cancelLastValue')
 
@@ -70,7 +70,7 @@ describe('Store', () => {
 
 	describe('addTrySeries', () => {
 		it('resets current series', () => {
-			store.state.current = createSeriesWith(5)
+			store.state.current = createSeries({values: [5]})
 
 			store.dispatch('addTrySeries')
 
@@ -78,7 +78,7 @@ describe('Store', () => {
 		})
 
 		it('moves current series to history', () => {
-			store.state.current = createSeriesWith(5)
+			store.state.current = createSeries({values: [5]})
 
 			store.dispatch('addTrySeries')
 
@@ -86,7 +86,7 @@ describe('Store', () => {
 		})
 
 		it('keeps already existing history', () => {
-			store.state.history = [createSeriesWith(5)]
+			store.state.history = [createSeries({values: [5]})]
 
 			store.dispatch('addTrySeries')
 
@@ -96,7 +96,7 @@ describe('Store', () => {
 
 	describe('stats', () => {
 		it('computes scores for each try series', () => {
-			store.state.history = [createSeriesWith(1, 2, 3)]
+			store.state.history = [createSeries({values: [1, 2, 3]})]
 
 			expect(store.getters.stats).to.deep.equals([{
 				numberTries: 3,
@@ -110,7 +110,7 @@ describe('Store', () => {
 		})
 
 		it('properly computes stats for multiple series', () => {
-			store.state.history = [createSeriesWith(1, 2), createSeriesWith(3, 4)]
+			store.state.history = [createSeries({values: [1, 2]}), createSeries({values: [3, 4]})]
 
 			expect(store.getters.stats).to.deep.equals([{
 				numberTries: 2,
@@ -124,9 +124,3 @@ describe('Store', () => {
 		})
 	})
 })
-
-function createSeriesWith(...values) {
-	const series = createSeries();
-	[...values].forEach(series.addTry)
-	return series
-}
