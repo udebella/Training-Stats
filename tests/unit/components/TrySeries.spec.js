@@ -54,4 +54,20 @@ describe('TrySeries component', () => {
 
 		expect($store.dispatch).to.have.been.calledWith('addTryValue', 1)
 	})
+
+	describe('Cancel button', () => {
+		it('displays a button to cancel last value', () => {
+			const button = wrapper.find('[data-test=cancel-last]')
+
+			expect(button.text()).to.equals('Cancel')
+		})
+
+		it('cancels last value when clicked', () => {
+			const button = wrapper.find('[data-test=cancel-last]')
+
+			button.trigger('click')
+
+			expect($store.dispatch).to.have.been.calledWith('cancelLastValue')
+		})
+	})
 })

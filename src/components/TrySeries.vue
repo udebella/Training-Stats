@@ -11,6 +11,11 @@
 				@click="addTryValue(button)">
 			{{button}}
 		</button>
+		<button data-test="cancel-last"
+				class="button"
+				@click="cancelLast">
+			Cancel
+		</button>
 	</div>
 </template>
 
@@ -28,6 +33,9 @@ export default {
 	methods: {
 		addTryValue(buttonValue) {
 			this.$store.dispatch('addTryValue', buttonValue)
+		},
+		cancelLast() {
+			this.$store.dispatch('cancelLastValue')
 		},
 	},
 }
