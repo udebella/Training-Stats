@@ -1,10 +1,9 @@
-import {computePercentile} from "../utils/percentiles"
 import {createSeries} from "../domain/serie"
 
 export const storeConfig = () => ({
 	state: {
 		buttons: [0, 0.5, 1, 2],
-		tries: [[]],
+		tries: [],
 		current: createSeries(),
 	},
 	mutations: {},
@@ -39,15 +38,9 @@ function addTrySeries(store) {
 
 function stats(state) {
 	return state.tries.map(trySeries => ({
-		numberTries: trySeries.length,
-		score: trySeries.reduce((score, tryScore) => score + tryScore, 0),
-		boxplot: [
-			computePercentile(trySeries, 0),
-			computePercentile(trySeries, 25),
-			computePercentile(trySeries, 50),
-			computePercentile(trySeries, 75),
-			computePercentile(trySeries, 100),
-		],
+		numberTries: trySeries.numberTries(),
+		score: trySeries.score(),
+		boxplot: trySeries.percentiles(),
 	}))
 }
 

@@ -70,7 +70,7 @@ describe('Store', () => {
 
 	describe('stats', () => {
 		it('computes scores for each try series', () => {
-			store.state.tries = [[1, 2, 3]]
+			store.state.tries = [createSeriesWith(1, 2, 3)]
 
 			expect(store.getters.stats).to.deep.equals([{
 				numberTries: 3,
@@ -79,18 +79,14 @@ describe('Store', () => {
 			}])
 		})
 
-		it('is 0 for empty try series', () => {
-			store.state.tries = [[]]
+		it('is empty when history is empty', () => {
+			store.state.tries = []
 
-			expect(store.getters.stats).to.deep.equals([{
-				numberTries: 0,
-				score: 0,
-				boxplot: [0, 0, 0, 0, 0],
-			}])
+			expect(store.getters.stats).to.deep.equals([])
 		})
 
 		it('properly computes scores for multiple series', () => {
-			store.state.tries = [[1, 2], [3, 4]]
+			store.state.tries = [createSeriesWith(1, 2), createSeriesWith(3, 4)]
 
 			expect(store.getters.stats).to.deep.equals([{
 				numberTries: 2,
@@ -101,18 +97,6 @@ describe('Store', () => {
 				score: 7,
 				boxplot: [3, 4, 4, 4, 4],
 			}])
-		})
-	})
-
-	describe('currentStats', () => {
-		it('give stats on the current try series', () => {
-			store.state.tries = [[1, 2, 3]]
-
-			expect(store.getters.currentStats).to.deep.equals({
-				numberTries: 3,
-				score: 6,
-				boxplot: [1, 2, 2, 3, 3],
-			})
 		})
 	})
 })
