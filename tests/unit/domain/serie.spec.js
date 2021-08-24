@@ -72,5 +72,16 @@ describe('Serie', () => {
 
 			expect(series.numberTries()).to.equals(0)
 		})
+
+		it('only cancel last values but keeps other values', () => {
+			const series = createSeries()
+			series.addTry(5)
+			series.addTry(2)
+
+			series.cancelLast()
+
+			expect(series.numberTries()).to.equals(1)
+			expect(series.score()).to.equals(5)
+		})
 	})
 })

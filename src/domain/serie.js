@@ -1,12 +1,12 @@
 import {computePercentile} from "../utils/percentiles"
 
 export const createSeries = () => {
-	let values = []
+	const values = []
 	return {
 		numberTries: () => values.length,
 		score: () => values.reduce((score, value) => score + value, 0),
 		addTry: (value) => values.push(value),
-		cancelLast: () => values = [],
+		cancelLast: () => values.pop(),
 		percentiles: () => [
 			computePercentile(values, 0),
 			computePercentile(values, 25),
