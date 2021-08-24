@@ -70,4 +70,20 @@ describe('TrySeries component', () => {
 			expect($store.dispatch).to.have.been.calledWith('cancelLastValue')
 		})
 	})
+
+	describe('Restart series', () => {
+		it('displays a button to start a new series', () => {
+			const button = wrapper.find('[data-test=start-new]')
+
+			expect(button.text()).to.equals('Start new')
+		})
+
+		it('starts a new series when clicked', () => {
+			const button = wrapper.find('[data-test=start-new]')
+
+			button.trigger('click')
+
+			expect($store.dispatch).to.have.been.calledWith('addTrySeries')
+		})
+	})
 })

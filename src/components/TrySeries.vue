@@ -16,6 +16,11 @@
 				@click="cancelLast">
 			Cancel
 		</button>
+		<button data-test="start-new"
+				class="button"
+				@click="startNew">
+			Start new
+		</button>
 	</div>
 </template>
 
@@ -36,6 +41,9 @@ export default {
 		},
 		cancelLast() {
 			this.$store.dispatch('cancelLastValue')
+		},
+		startNew() {
+			this.$store.dispatch('addTrySeries')
 		},
 	},
 }
