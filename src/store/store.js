@@ -27,11 +27,11 @@ function addButton(store, buttonToAdd) {
 }
 
 function addTryValue(store, tryValue) {
-	store.state.current.addTry(tryValue)
+	store.state.current = store.state.current.addTry(tryValue)
 }
 
 function cancelLastValue(store) {
-	store.state.current.cancelLast()
+	store.state.current = store.state.current.cancelLast()
 }
 
 function addTrySeries(store) {
