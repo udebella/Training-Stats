@@ -62,4 +62,15 @@ describe('Serie', () => {
 			expect(series.percentiles()).to.deep.equals([1, 2, 3, 4, 5])
 		})
 	})
+
+	describe('cancelLast', () => {
+		it('allows to remove last entered value', () => {
+			const series = createSeries()
+			series.addTry(5)
+
+			series.cancelLast()
+
+			expect(series.numberTries()).to.equals(0)
+		})
+	})
 })
