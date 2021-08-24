@@ -13,11 +13,14 @@ describe('Store', () => {
 		it('has an empty current series by default', () => {
 			expect(store.state.current.score()).to.equals(0)
 		})
-	})
 
-	it('is empty by default', () => {
-		expect(store.state.buttons).to.deep.equals([0, 0.5, 1, 2])
-		expect(store.state.tries).to.deep.equals([[]])
+		it('has some buttons by default', () => {
+			expect(store.state.buttons).to.deep.equals([0, 0.5, 1, 2])
+		})
+
+		it('has an empty history by default', () => {
+			expect(store.state.tries).to.deep.equals([[]])
+		})
 	})
 
 	describe('addButton', () => {
