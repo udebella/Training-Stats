@@ -11,8 +11,7 @@ describe('Serie', () => {
 
 		it('counts tries', () => {
 			const series = createSeries()
-
-			series.addTry(2)
+				.addTry(2)
 
 			expect(series.numberTries()).to.equals(1)
 		})
@@ -27,17 +26,15 @@ describe('Serie', () => {
 
 		it('computes score when we add tries', () => {
 			const series = createSeries()
-
-			series.addTry(2)
+				.addTry(2)
 
 			expect(series.score()).to.equals(2)
 		})
 
 		it('computes score when we add multiple tries', () => {
 			const series = createSeries()
-
-			series.addTry(2)
-			series.addTry(1)
+				.addTry(2)
+				.addTry(1)
 
 			expect(series.score()).to.equals(3)
 		})
@@ -52,12 +49,11 @@ describe('Serie', () => {
 
 		it('gives minimum, first quartile, median, last quartile and maximum on a series with values', () => {
 			const series = createSeries()
-
-			series.addTry(1)
-			series.addTry(2)
-			series.addTry(3)
-			series.addTry(4)
-			series.addTry(5)
+				.addTry(1)
+				.addTry(2)
+				.addTry(3)
+				.addTry(4)
+				.addTry(5)
 
 			expect(series.percentiles()).to.deep.equals([1, 2, 3, 4, 5])
 		})
@@ -66,16 +62,14 @@ describe('Serie', () => {
 	describe('cancelLast', () => {
 		it('allows to remove last entered value', () => {
 			const series = createSeries({values: [5]})
-
-			series.cancelLast()
+				.cancelLast()
 
 			expect(series.numberTries()).to.equals(0)
 		})
 
 		it('only cancel last values but keeps other values', () => {
 			const series = createSeries({values: [5, 2]})
-
-			series.cancelLast()
+				.cancelLast()
 
 			expect(series.numberTries()).to.equals(1)
 			expect(series.score()).to.equals(5)
