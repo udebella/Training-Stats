@@ -1,13 +1,5 @@
 import {expect} from "chai"
-
-const createSeries = () => {
-	const values = []
-	return {
-		numberTries: () => values.length,
-		score: () => values.reduce((score, value) => score + value, 0),
-		addTry: (value) => values.push(value),
-	}
-}
+import {createSeries} from "../../../src/domain/serie"
 
 describe('Serie', () => {
 	describe('numberTries', () => {
