@@ -1,4 +1,8 @@
 <template>
+	<div class="stats">
+		<div data-test="number-of-tries">{{ currentStats.numberTries() }}</div>
+		<div data-test="score">{{ currentStats.score() }}</div>
+	</div>
 	<div class="button-list">
 		<button data-test="try-score-button"
 				class="button"
@@ -14,6 +18,9 @@
 export default {
 	name: 'TrySeries',
 	computed: {
+		currentStats() {
+			return this.$store.getters.current
+		},
 		buttons() {
 			return this.$store.getters.buttons
 		},
@@ -27,6 +34,10 @@ export default {
 </script>
 
 <style scoped>
+.stats {
+	font-size: 100px;
+	text-align: center;
+}
 .button-list {
 	display: flex;
 	justify-content: space-around;

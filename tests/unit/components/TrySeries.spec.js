@@ -2,16 +2,20 @@ import {expect} from 'chai'
 import {shallowMount} from '@vue/test-utils'
 import TrySeries from '@/components/TrySeries.vue'
 import {stub} from "sinon"
+import {createSeries} from "../../../src/domain/serie"
 
 describe('TrySeries component', () => {
 	let wrapper
 	let $store
 
 	beforeEach(() => {
+		const currentSeries = createSeries()
+		currentSeries.addTry(2)
 		$store = {
 			dispatch: stub(),
 			getters: {
 				buttons: [1, 2],
+				current: currentSeries,
 			},
 		}
 		wrapper = shallowMount(TrySeries, {
@@ -21,6 +25,18 @@ describe('TrySeries component', () => {
 				},
 			},
 		})
+	})
+
+	it('displays the score for the series', () => {
+		const score = wrapper.find('[data-test=score]')
+
+		expect(score.text()).to.equals('2')
+	})
+
+	it('displays the number of tries', () => {
+		const score = wrapper.find('[data-test=number-of-tries]')
+
+		expect(score.text()).to.equals('1')
 	})
 
 	it('displays try score buttons', () => {
