@@ -1,26 +1,23 @@
 import {computePercentile} from "../utils/percentiles"
 
 export const createSeries = ({values = []} = {}) => {
-	const tries = [...values]
 	const addTry = (value) => {
-		tries.push(value)
-		return createSeries({values: tries})
+		return createSeries({values: [...values, value]})
 	}
 	const cancelLast = () => {
-		tries.pop()
-		return createSeries({values: tries})
+		return createSeries({values: values.filter((_, index) => index !== values.length - 1)})
 	}
 	return {
-		numberTries: () => tries.length,
-		score: () => tries.reduce((score, value) => score + value, 0),
+		numberTries: () => values.length,
+		score: () => values.reduce((score, value) => score + value, 0),
 		addTry,
 		cancelLast,
 		percentiles: () => [
-			computePercentile(tries, 0),
-			computePercentile(tries, 25),
-			computePercentile(tries, 50),
-			computePercentile(tries, 75),
-			computePercentile(tries, 100),
+			computePercentile(values, 0),
+			computePercentile(values, 25),
+			computePercentile(values, 50),
+			computePercentile(values, 75),
+			computePercentile(values, 100),
 		],
 	}
 }

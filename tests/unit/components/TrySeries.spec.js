@@ -9,13 +9,11 @@ describe('TrySeries component', () => {
 	let $store
 
 	beforeEach(() => {
-		const currentSeries = createSeries()
-		currentSeries.addTry(2)
 		$store = {
 			dispatch: stub(),
 			getters: {
 				buttons: [1, 2],
-				current: currentSeries,
+				current: createSeries({values: [2]}),
 			},
 		}
 		wrapper = shallowMount(TrySeries, {
