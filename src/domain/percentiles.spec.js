@@ -1,5 +1,5 @@
 import {expect} from "chai"
-import {computePercentile} from "../../../src/utils/percentiles"
+import {computePercentile} from "./percentiles"
 
 describe('computePercentile', () => {
 	[0, 50, 100].forEach(percentile => {

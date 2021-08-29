@@ -1,4 +1,4 @@
-import {computePercentile} from "../utils/percentiles"
+import {computePercentile} from "./percentiles"
 
 export const createSeries = ({values = []} = {}) => {
 	const addTry = (value) => {

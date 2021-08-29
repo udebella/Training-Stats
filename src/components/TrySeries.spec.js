@@ -2,7 +2,7 @@ import {expect} from 'chai'
 import {shallowMount} from '@vue/test-utils'
 import TrySeries from '@/components/TrySeries.vue'
 import {stub} from "sinon"
-import {createSeries} from "../../../src/domain/serie"
+import {createSeries} from "@/domain/serie"
 
 describe('TrySeries component', () => {
 	let wrapper

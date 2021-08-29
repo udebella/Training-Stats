@@ -1,7 +1,7 @@
 import {expect} from "chai"
 import {createStore} from "vuex"
-import {storeConfig} from "../../../src/store/store"
-import {createSeries} from "../../../src/domain/serie"
+import {storeConfig} from "./store"
+import {createSeries} from "@/domain/serie"
 
 describe('Store', () => {
 	let store

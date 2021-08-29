@@ -1,5 +1,5 @@
 import {expect} from "chai"
-import {createSeries} from "../../../src/domain/serie"
+import {createSeries} from "./serie"
 
 describe('Serie', () => {
 	describe('numberTries', () => {
