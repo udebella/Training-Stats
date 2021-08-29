@@ -1,5 +1,5 @@
 <template>
-	<Chart data-test="chart"/>
+	<Chart data-test="chart" :options="options"/>
 </template>
 
 <script>
@@ -7,7 +7,20 @@ import {Chart} from 'highcharts-vue'
 
 export default {
 	name: 'history',
-	computed: {},
+	computed: {
+		stats() {
+			return this.$store.getters.stats
+		},
+		options() {
+			return {
+				series: [{
+					name: 'scores',
+					type: 'line',
+					data: this.stats.map(({score}) => score),
+				}],
+			}
+		},
+	},
 	components: {
 		Chart,
 	},
