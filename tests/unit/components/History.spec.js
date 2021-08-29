@@ -36,9 +36,19 @@ describe('History component', () => {
 		const chart = wrapper.findComponent('[data-test=chart]')
 
 		expect(chart.props('options').series[0]).to.deep.equals({
-			name: 'scores',
+			name: 'Scores',
 			type: 'line',
 			data: [2],
+		})
+	})
+
+	it('displays boxplot series', () => {
+		const chart = wrapper.findComponent('[data-test=chart]')
+
+		expect(chart.props('options').series[1]).to.deep.equals({
+			name: 'Percentiles',
+			type: 'boxplot',
+			data: [[2, 2, 2, 2, 2]],
 		})
 	})
 })

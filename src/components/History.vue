@@ -14,9 +14,13 @@ export default {
 		options() {
 			return {
 				series: [{
-					name: 'scores',
+					name: 'Scores',
 					type: 'line',
 					data: this.stats.map(({score}) => score),
+				}, {
+					name: 'Percentiles',
+					type: 'boxplot',
+					data: this.stats.map(({boxplot}) => boxplot),
 				}],
 			}
 		},
