@@ -1,4 +1,4 @@
-import {createSeries} from "../domain/serie"
+import {createSeries} from "@/domain/serie"
 
 export const storeConfig = () => ({
 	state: {
