@@ -17,10 +17,18 @@ export default {
 					name: 'Scores',
 					type: 'line',
 					data: this.stats.map(({score}) => score),
+					yAxis: 0,
 				}, {
 					name: 'Percentiles',
 					type: 'boxplot',
 					data: this.stats.map(({boxplot}) => boxplot),
+					yAxis: 1,
+				}],
+				yAxis: [{
+					title: {text: 'Scores'},
+				}, {
+					title: {text: 'Percentiles'},
+					opposite: true,
 				}],
 			}
 		},

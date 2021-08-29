@@ -39,6 +39,7 @@ describe('History component', () => {
 			name: 'Scores',
 			type: 'line',
 			data: [2],
+			yAxis: 0,
 		})
 	})
 
@@ -49,6 +50,18 @@ describe('History component', () => {
 			name: 'Percentiles',
 			type: 'boxplot',
 			data: [[2, 2, 2, 2, 2]],
+			yAxis: 1,
 		})
+	})
+
+	it('displays multiple yAxis', () => {
+		const chart = wrapper.findComponent('[data-test=chart]')
+
+		expect(chart.props('options').yAxis).to.deep.equals([{
+			title: {text: 'Scores'},
+		}, {
+			title: {text: 'Percentiles'},
+			opposite: true,
+		}])
 	})
 })
