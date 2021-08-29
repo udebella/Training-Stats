@@ -10,8 +10,14 @@ describe('App component', () => {
 	})
 
 	it('displays try series buttons', () => {
-		const trySeries = wrapper.find('[data-test=try-series]')
+		const trySeries = wrapper.findComponent('[data-test=try-series]')
 
 		expect(trySeries.exists()).to.be.true
+	})
+
+	it('displays history', () => {
+		const history = wrapper.findComponent('[data-test=history]')
+
+		expect(history.exists()).to.be.true
 	})
 })
