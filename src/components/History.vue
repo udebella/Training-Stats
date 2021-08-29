@@ -30,6 +30,7 @@ export default {
 					title: {text: 'Percentiles'},
 					opposite: true,
 				}],
+				title: {text: 'History'},
 			}
 		},
 	},

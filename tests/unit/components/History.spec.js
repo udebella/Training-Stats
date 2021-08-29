@@ -64,4 +64,12 @@ describe('History component', () => {
 			opposite: true,
 		}])
 	})
+
+	it('displays a title for the chart', () => {
+		const chart = wrapper.findComponent('[data-test=chart]')
+
+		expect(chart.props('options').title).to.deep.equals({
+			text: 'History',
+		})
+	})
 })
