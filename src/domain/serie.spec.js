@@ -1,7 +1,7 @@
 import {expect} from "chai"
 import {createSeries} from "./serie"
 
-describe('Serie', () => {
+describe('Series', () => {
 	describe('numberTries', () => {
 		it('is 0 by default', () => {
 			const series = createSeries()
